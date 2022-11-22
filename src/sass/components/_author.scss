@@ -1,0 +1,36 @@
+@import '../settings/var';
+
+.author {
+  margin: 0;
+
+  &-info {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__info {
+    margin: 0 1rem;
+  }
+
+  &__image {
+    margin: 0;
+    height: 3.7rem;
+    width: 3.7rem;
+    clip-path: circle(1.85rem);
+  }
+
+  &__name {
+    margin: 0;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    line-height: 18px;
+    font-weight: 500;
+  }
+
+  &__prof {
+    margin: 0;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: $secondary-text;
+  }
+}

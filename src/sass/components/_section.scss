@@ -1,0 +1,15 @@
+.section {
+  padding-top: 1.035rem;
+  padding-bottom: 1.035rem;
+  border-bottom: 0.05rem solid #000000;
+
+  &--light-bottom {
+    padding: 0;
+    box-shadow: none;
+    border-bottom: 0.05rem solid #c7c7c7;
+  }
+
+  &--main {
+    margin-top: 3rem;
+  }
+}

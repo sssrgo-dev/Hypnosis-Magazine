@@ -1,0 +1,101 @@
+.banner {
+  // margin: 3rem 0 6.4rem 0
+  // margin-top: 3rem;
+  // margin-bottom: 5 0.4rem;
+  &--video {
+    margin-top: 6rem;
+  }
+
+  &__graphics {
+    position: relative;
+  }
+
+  &--secondary {
+    // gap: 6.2rem;
+    margin: 0;
+    padding: 0 2.5rem;
+    width: 100%;
+  }
+
+  &__icon {
+    &--video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    &--main {
+      margin-bottom: 2.8rem;
+    }
+    &--secondary {
+      padding-right: 6.2rem;
+      &-reversed {
+        padding-left: 6.2rem;
+      }
+    }
+
+    // &--video {
+    //   position: relative;
+    //   &::before {
+    //     content: url('../../media/svg/Group\ 10.svg');
+    //     display: inline-block;
+    //     position: absolute;
+    //     height: 6rem;
+    //     width: 6rem;
+    //     z-index: 999;
+    //   }
+    // }
+  }
+
+  &__info {
+    &--main {
+      margin: 0;
+      width: 100%;
+      padding: 0 2.5rem;
+    }
+    &--secondary {
+      border-bottom: 0.05rem solid #000;
+      border-top: 0.05rem solid #000;
+      // padding-right: 1rem;
+    }
+    &--video {
+      padding: 3.2rem 12.55rem 3rem 12.55rem;
+      text-align: center;
+      &::before {
+        content: url('../../media/svg/“.svg');
+        display: inline-block;
+        margin-bottom: 2.4rem;
+
+        height: 1.6rem;
+        width: 1.6rem;
+        z-index: 999;
+      }
+    }
+  }
+
+  &__heading {
+    padding-bottom: 1rem;
+    line-height: 1.95rem;
+    font-size: 1.51rem;
+    font-weight: 600;
+    padding-right: 2.5rem;
+  }
+
+  &__text {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+  }
+  & p {
+    margin-bottom: 1rem;
+  }
+
+  &-grid {
+    gap: 8.85rem;
+    margin-top: 5.4rem;
+  }
+}

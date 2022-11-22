@@ -1,0 +1,39 @@
+@import '../settings/var';
+
+.search-form {
+  display: flex;
+  justify-content: flex-end;
+
+  &__input {
+    position: relative;
+    border: 1px solid $border-box-color;
+    padding-left: 1.9rem;
+    height: 1.9rem;
+    width: 13rem;
+    font-size: 0.8rem;
+    border-radius: 5rem;
+
+    &:focus-visible {
+      filter: drop-shadow($shadow-inputbox-active);
+      border-radius: 24px;
+    }
+
+    &::placeholder {
+      // position: absolute;
+      color: $font-tooltip-color;
+      // padding-left: 1.9rem;
+      // top: 0.8rem;
+      // transform: translateY(-50%);
+
+      font: {
+        size: 0.8rem;
+      }
+    }
+  }
+
+  & div {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+}
