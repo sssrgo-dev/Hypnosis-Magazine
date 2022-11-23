@@ -8,6 +8,15 @@ const DivBEMComponent = (props) => {
 const BannerInfo = (props) => {
   const modifyBEMClass = props.modifyBEMClass;
   const modifiedBEMClass = modifyBEMClass('banner__info');
+  const BannerInfoText = () =>
+    props.content.texts.map((text, index) => (
+      <p
+        key={new Date().getTime() + index * index}
+        className={modifyBEMClass('banner__text-paragraph')}
+      >
+        {text}
+      </p>
+    ));
 
   const bunnerInfoButtonContent = formComponentsListIfGiven([
     <img
@@ -33,14 +42,7 @@ const BannerInfo = (props) => {
     </DivBEMComponent>,
 
     <DivBEMComponent modifyBEMClass={modifyBEMClass} BEMClass="banner__text">
-      {props.content.texts.map((text, index) => (
-        <p
-          key={new Date().getTime() + index * index}
-          className={modifyBEMClass('banner__text-paragraph')}
-        >
-          {text.p}
-        </p>
-      ))}
+      <BannerInfoText />
     </DivBEMComponent>,
 
     <button className={modifyBEMClass('button')}>

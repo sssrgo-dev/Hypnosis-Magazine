@@ -36,13 +36,13 @@
 .buttons-share {
   margin-right: 0;
   margin-left: 0;
+  gap: 0 0.8rem;
   &__item {
     display: flex;
     align-items: center;
-    // flex-basis: auto;
     background-color: #fff;
     height: 2.02rem;
-    margin-left: 0.8rem;
+
     border: 1px solid #b4b4b4;
     font-size: 0.8rem;
   }

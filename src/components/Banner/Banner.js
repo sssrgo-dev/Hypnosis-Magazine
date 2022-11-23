@@ -1,108 +1,61 @@
-// import playIcon from '../media/svg/Group 10.svg';
+import { useContext } from 'react';
+import { StyleContext } from '../contexts';
 
-import BannerGraphics from './elements/BannerGraphics';
-import BannerInfo from './elements/BannerInfo';
-
-const unary = (fn) => (arg1) => (arg2) => fn(arg1, arg2);
-
-const formBEMClasses = (modifier, bem) =>
-  bem + modifier ? bem + modifier : '';
-
-const formBEMClassesStep1 = unary(formBEMClasses);
-
-const Banner = (props) => {
-  const modifier = props.blockModifier ? '--' + props.blockModifier : '';
-  const modifyBEMClass = formBEMClassesStep1(modifier);
-  const BEMClasses = modifyBEMClass('banner');
-  // console.log('props.content.bannerGraphics', props.content.bannerGraphics);
-
-  return (
-    <div className={BEMClasses}>
-      <BannerGraphics
-        modifyBEMClass={modifyBEMClass}
-        content={props.content.bannerGraphics}
-      />
-      <BannerInfo
-        modifyBEMClass={modifyBEMClass}
-        content={props.content.bannerInfo}
-      />
-    </div>
-  );
+const layoutSchema = {
+  main: {
+    graphics: 12,
+    info: 12,
+  },
+  'secondary--1': {
+    graphics: 6,
+    info: 6,
+  },
+  'secondary--2': {
+    graphics: 6,
+    info: 6,
+  },
+  video: {
+    graphics: 12,
+    info: 12,
+  },
 };
 
-// const VideoIconImage = (props) => {
-//   if (props.banner.type === 'video')
-//     return (
-//       <img src={playIcon} alt="click to play" class="banner__icon--video" />
-//     );
-//   return '';
-// };
-// const formBannerBlockList = (banner) => (
-//   <Banner
-//     key={banner.id}
-//     imagePath={banner.imagePath}
-//     type={banner.type}
-//     classes={[
-//       'grid',
-//       'banner',
-//       banner.type === 'secondary' ? 'grid--padded banner--secondary' : '',
-//       banner.type === 'video'
-//         ? 'grid--padded grid--direction_column banner--video'
-//         : '',
-//     ]}
-//   >
-//     <div
-//       className={`banner__graphics ${
-//         banner.type === 'main' ? 'grid__col-desk-12' : ''
-//       }${banner.type === 'secondary' ? ' grid__col-desk-6' : ''} ${
-//         banner.id > 1 && banner.id % 2 === 1 ? 'grid__col-desk-6--order2' : ''
-//       }${banner.type === 'video' ? ' grid__col-desk-12' : ''}`}
-//     >
-//       <VideoIconImage banner={banner} />
-//       <img
-//         src={banner.imagePath}
-//         alt={banner.content.header}
-//         className={`banner__image banner__image--${banner.type}${
-//           banner.id > 1 && banner.id % 2 === 1 ? `-reversed` : ''
-//         }`}
-//       />
-//     </div>
+const formTextFromPList = (texts) =>
+  texts?.map((text, index) => (
+    <p key={new Date().getTime() + index}>{text.p}</p>
+  )) || '';
 
-//     <div
-//       className={[
-//         banner.type === 'main' ? 'grid__col-desk-12' : '',
-//         banner.type === 'secondary'
-//           ? 'grid__col-desk-6 grid--direction_column grid--justify-content_center'
-//           : '',
-//         banner.type === 'video'
-//           ? 'grid__col-desk-12 grid--justify-content_center'
-//           : '',
+export const Banner = ({ content }) => {
+  const { block, type } = useContext(StyleContext);
+  const BannerInfoText = formTextFromPList(content.bannerInfo.texts);
 
-//         'grid',
-//         'banner__info',
-//         `banner__info--${banner.type}`,
-//       ].join(' ')}
-//     >
-//       <div
-//         className={[
-//           banner.type === 'main' ? 'grid__col-desk-6' : '',
-//           'banner__heading',
-//         ].join(' ')}
-//       >
-//         {banner.content.header}
-//       </div>
-//       <div
-//         className={[
-//           banner.type === 'main' ? 'grid__col-desk-6' : '',
-//           'banner__text',
-//         ].join(' ')}
-//       >
-//         {banner.content.texts.map((text) => (
-//           <p key={text.id}>{text.p}</p>
-//         ))}
-//       </div>
-//     </div>
-//   </Banner>
-// );
+  return (
+    <>
+      <div
+        className={`${block}__graphics ${block}__graphics--${type} grid__col-desk-${layoutSchema[type].graphics}`}
+      >
+        <img
+          className={`${block}__image ${block}__image--${type}`}
+          src={content.bannerImage.src}
+          alt={content.bannerImage.alt}
+        />
+      </div>
+      <div className={`${block}__info ${block}__info--${type}`}>
+        <>
+          {/* bunner category */}
+          <div
+            className={`${block}__heading ${block}__heading--${type} grid__col-desk-${layoutSchema[type]}`}
+          >
+            {content.bannerInfo.heading}
+          </div>
+          <div className={`${block}__text ${block}__text--type`}>
+            {BannerInfoText}
+          </div>
+          {/* bunner button */}
+        </>
+      </div>
+    </>
+  );
+};
 
 export default Banner;

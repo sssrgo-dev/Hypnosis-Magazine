@@ -1,7 +1,8 @@
 import { socialButtons } from '../../content/content';
+import { formContextedComponentsList } from '../utlis';
 
-const formSocialShareButton = (socialItem) => (
-  <button key={socialItem.id} className="buttons-share__item ">
+const formSocialShareButton = (socialItem, index) => (
+  <button key={new Date().getTime() * index} className="buttons-share__item">
     <img
       src={socialItem.iconLink}
       alt={socialItem.name}
@@ -11,10 +12,6 @@ const formSocialShareButton = (socialItem) => (
   </button>
 );
 
-const SocialShareBlock = (props) => (
-  <div className={props.classes.join(' ')}>
-    {socialButtons.map(formSocialShareButton)}
-  </div>
-);
+const SocialShareBlock = () => socialButtons.map(formSocialShareButton);
 
 export default SocialShareBlock;

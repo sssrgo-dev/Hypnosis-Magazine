@@ -1,0 +1,7 @@
+.header {
+  padding-top: 1.035rem;
+  padding-bottom: 1.035rem;
+  & + hr {
+    border-top: 1px solid #000;
+  }
+}

@@ -1,0 +1,6 @@
+.page-meta {
+  height: 5.6rem;
+  & + hr {
+    border-top: 1px solid #000;
+  }
+}
